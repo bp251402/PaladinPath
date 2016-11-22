@@ -56,6 +56,18 @@ class NewVisitorTest(unittest.TestCase):
         h=self.browser.find_element_by_tag_name('h1')
         m=self.browser.find_element_by_tag_name('img')
 
+        #the user goes back to the home page
+
+        self.browser.back()
+
+        
+        #The user sees, at the bottom of the page, a link to the credits
+        l= self.browser.find_element_by_link_text('Credits')
+        l.click()
+        a=self.browser.current_url
+        self.assertIn("credits", a)
+        
+
 
 if __name__=="__main__":
         unittest.main(warnings="ignore")
